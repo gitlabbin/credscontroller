@@ -8,6 +8,18 @@ spring.cloud.vault:
         #trust-store: file://${vault.truststore:/var/run/secrets/vault.jks}
         #trust-store: bean://inMemoryVaultTrustStore
         trust-store-password: ${vault.truststore.password:changeit}
+#    generic:
+#        enabled: true
+#        backend: secret1
+#        application-name: spring-example
+    kv:
+        enabled: true
+        backend: secret
+        profile-separator: '/'
+        default-context: spring-example
+        application-name: spring-example
     config:
         order: 10
-logging.level.org.springframework: debug                
+    config.lifecycle:
+        enabled: false
+logging.level.org.springframework: info

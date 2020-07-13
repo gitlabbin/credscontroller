@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SecretController {
-	
-	private Log log = LogFactory.getLog(SecretController.class);
 
-	@Value("${password}")
-	String password;
+  private Log log = LogFactory.getLog(SecretController.class);
 
-	@RequestMapping("/secret")
-	public String secret() {
-		return "my secret is" + password;
-	}
+  @Value("${password}")
+  String password;
+
+  @RequestMapping("/secret")
+  public String secret() {
+    return "my secret is: " + password;
+  }
 }
